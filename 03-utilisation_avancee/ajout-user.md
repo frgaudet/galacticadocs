@@ -38,7 +38,7 @@ Quelques explications :
 * name : username,
 * gecos : nom complet de l'utilisateur,
 * groups : groupes dont le user fait partie,
-* sudo : ici le user fred pourra passer des commandes sudo sans que son propre password ne lui soit demandé,
+* sudo : ici le user fred pourra passer des commandes en utilisant sudo,
 * shell : shell à exécuter par défaut
 * lock-password : Si false, permet à un user de se logger grâce à un password
 * passwd : le hash du password
