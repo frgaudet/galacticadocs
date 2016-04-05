@@ -1,1 +1,11 @@
 # Summary
+* [Prise en main](01-prise_en_main/README.md)
+	* [Définir une clé de sécurité](01-prise_en_main/definir_cle_securite.md)
+	* [Lancer une instance](01-prise_en_main/lancer-instance.md)
+	* [Ajouter une floating IP](01-prise_en_main/ajouter-floating-ip.md)
+	* [Accéder aux données](01-prise_en_main/acceder-aux-donnees.md)
+* [Utiliser le service bloc storage](02-bloc_storage/README.md)
+	* [Créer un disque virtuel](02-bloc_storage/creer-disque-virtuel.md)
+* [Utilisation avancée](03-utilisation_avancee/README.md)
+	* [Cloner une VM](03-utilisation_avancee/cloner-vm.md)
+	* [Cloud-Init : ajouter un user](03-utilisation_avancee/ajout-user.md)
