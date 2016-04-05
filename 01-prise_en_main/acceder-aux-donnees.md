@@ -4,11 +4,8 @@ Vous souhaitez utiliser les jeux de données de la plateforme à des fins d'exp�
 
 ![Local Image](./images/swift-01.jpg)
 
-# Les segments
-
-Dans la capture d'écran présentée ici, on voit qu'il existe un container 'lsst' et un autre appelé 'lsst_segments'. Lorsque vous uploadez un fichier plus volumineux que 5Go, alors il est divisé en segments plus petits dans un autre container dont le suffixe est 'segments'.
-
-Lorsque vous downloadez les objets, le client swift rassemble les morceaux de manière transparente pour l'utilisateur.
+{% em type="red" %}Remarque : dans la capture d'écran présentée ici, on voit qu'il existe un container 'lsst' et un autre appelé 'lsst_segments'. Lorsque vous uploadez un fichier plus volumineux que 5Go, alors il est divisé en segments plus petits dans un autre container dont le suffixe est 'segments'.
+Lorsque vous downloadez les objets, le client swift rassemble les morceaux de manière transparente pour l'utilisateur.{% endem %}
 
 # Comment exploiter les données ?
 
