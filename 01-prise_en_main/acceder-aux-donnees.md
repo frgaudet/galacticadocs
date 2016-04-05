@@ -27,9 +27,9 @@ sudo yum -y install python-swiftclient`
 Lancez le download :
 
 	swift --os-tenant-name petasky \
-	--os-region-name RegionOne \
-	--os-username fred  \
-	--os-password <password> \
-	--os-auth-url https://api.isima.fr:5000/v2.0 [object]
+		  --os-region-name RegionOne \
+		  --os-username fred  \
+		  --os-password <password> \
+		  --os-auth-url https://api.isima.fr:5000/v2.0 [object]
 
 Si vous spécifiez simplement le nom du container, tout le contenu dudit container sera téléchargé. Si vous spécifiez un nom d'objet, seul ce dernier sera téléchargé.
