@@ -22,7 +22,7 @@ Debian like :
 
 Red hat like :
 
-sudo yum -y install python-swiftclient`
+`sudo yum -y install python-swiftclient`
 
 Lancez le download :
 

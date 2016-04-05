@@ -15,7 +15,7 @@ Ensuite, générer un hash de votre mot de passe, ici c'est 'montmotdepasse' :
 
 Ensuite placez le hash du mot de passe ainsi récupéré dans le script yaml dont voici un exemple ci-dessous.
 
-Ne tentez pas de placer un mot de passe au user 'root', pour des raisons de sécurité les images sont configurées de telle sorte que le user root ne peut pas se connecter en SSH avec un password. Vous devez créer un user lamdba, qui éventuellement peut devenir root via sudo.
+{% em type="red" %}Ne tentez pas de placer un mot de passe au user 'root', pour des raisons de sécurité les images sont configurées de telle sorte que le user root ne peut pas se connecter en SSH avec un password. Vous devez créer un user lamdba, qui éventuellement peut devenir root via sudo.{% endem %}
 
 # Créer le script
 
