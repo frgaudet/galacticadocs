@@ -2,7 +2,7 @@
 * [Prise en main](01-prise_en_main/README.md)
 	* [Définir une clé de sécurité](01-prise_en_main/definir_cle_securite.md)
 	* [Lancer une instance](01-prise_en_main/lancer-instance.md)
-	* [Ajouter une floating IP](01-prise_en_main/ajouter-floating-ip.md)
+	* [Prendre la main sur l'instance](01-prise_en_main/prendre-la-main.md)
 	* [Accéder aux données](01-prise_en_main/acceder-aux-donnees.md)
 * [Utiliser le service bloc storage](02-bloc_storage/README.md)
 	* [Créer un disque virtuel](02-bloc_storage/creer-disque-virtuel.md)
