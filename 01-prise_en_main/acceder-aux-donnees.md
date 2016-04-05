@@ -27,6 +27,6 @@ Lancez le download :
 		  --os-region-name RegionOne \
 		  --os-username fred  \
 		  --os-password <password> \
-		  --os-auth-url https://api.isima.fr:5000/v2.0 [object]
+		  --os-auth-url https://api.isima.fr:5000/v2.0 download container [object]
 
 Si vous spécifiez simplement le nom du container, tout le contenu dudit container sera téléchargé. Si vous spécifiez un nom d'objet, seul ce dernier sera téléchargé.
