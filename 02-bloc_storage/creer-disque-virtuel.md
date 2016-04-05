@@ -19,3 +19,13 @@ Sélectionnez la VM à laquelle vous allez attacher le volume dans la liste dér
 Si tout se passe bien, l'interface indique que le statut du volume est 'In-use' et le nom du périphérique utilisé sur la VM. Ici /dev/vdb.
 
 ![Local Image](./images/volume-05.jpg)
+
+A présent, connectez vous sur votre VM et ...
+
+* formatez le disque,
+* montez le disque,
+* utilisez le disque :)
+
+# Conseil
+
+Pensez à démonter le disque de votre VM avant d'effectuer des opérations (resize, detach). Sinon vous risquez de compromettre l'intégrité des données.
