@@ -9,5 +9,8 @@
             "Contact": "mailto:gaudet@isima.fr",
             "Retour":"https://galactica.isima.fr"
         }
+    },
+    "styles": {
+        "website": "styles/bootstrap.css"
     }
 }
