@@ -43,4 +43,4 @@ Quelques explications :
 * lock-password : Si false, permet à un user de se logger grâce à un password
 * passwd : le hash du password
 
-Plus d'infos sur la doc officielle ici.
+Plus d'infos sur la doc officielle [ici](https://cloudinit.readthedocs.org/en/latest/).
