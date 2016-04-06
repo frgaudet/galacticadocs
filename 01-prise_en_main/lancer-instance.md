@@ -15,8 +15,8 @@ Sur l'écran représenté ici, il suffit de saisir les éléments suivants :
 
 ![Local Image](./images/create-instance-02.jpg)
 
-{% em type="red" %}Merci d'utiliser votre login comme préfixe aux noms de vos VM.
-Exemple : "fgaudet_mysql-server"{% endem %}
+<div class="alert alert-warning">Merci d'utiliser votre login comme préfixe aux noms de vos VM.
+Exemple : "fgaudet_mysql-server"</div>
 
 La liste déroulante vous permet de choisir la clé publique qui sera injectée "dans" la VM. Le groupe de sécurité représente les règles de firewall à appliquer à la VM. Ici, choisissez le groupe par défaut. Il ouvre en entrée seulement l'ICMP et le SSH. Nous verrons ultérieurement comment créer ses propres groupes de sécurité et comment modifier les règles.
 

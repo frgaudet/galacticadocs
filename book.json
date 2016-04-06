@@ -3,7 +3,7 @@
 	"title": "Documentation utilisateur",
 	"description": "Documentation utilisateur de la plateforme de cloud computing Galactica",
 	"language": "fr",
-    "plugins": ["emphasize", "katex", "include", "mermaid"],
+    "plugins": ["katex", "include", "mermaid"],
     "links": {
         "sidebar": {
             "Contact": "mailto:gaudet@isima.fr",

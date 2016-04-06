@@ -3,7 +3,7 @@ Pensez avant toute opération sur les volumes à démonter le disque depuis votr
 
 Exemple : `sudo umount /dev/vdb`
 
-{% em type="red" %}Cette commande ne peut fonctionner que si aucun processus n'utilise cette ressource.{% endem %}
+<div class="alert alert-warning">Cette commande ne peut fonctionner que si aucun processus n'utilise cette ressource.</div>
 
 # Détacher le volume
 
