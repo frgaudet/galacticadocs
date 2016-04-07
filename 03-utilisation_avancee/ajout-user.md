@@ -30,7 +30,7 @@ Ensuite placez le hash du mot de passe ainsi récupéré dans le script yaml don
 	   lock-passwd: false
 	   passwd: $1$GwZT4duo$guq9frwju6IMrz5rBCxIH0
 
-![Local Image](./images/clone-01.jpg)
+![Local Image](./images/cloudinit-01.jpg)
 
 Quelques explications :
 
