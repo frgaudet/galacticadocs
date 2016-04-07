@@ -28,7 +28,7 @@ Le volume est désormais en attente de transfert, comme indiqué sur la capture 
 
 ![Local Image](./images/volume-10.jpg)
 
-Côté destinataire, cliquez sur le bouton 'Accept transfert' situé sur l'écran principal de gestion des volumes.
+Côté destinataire, qui ici est le projet appelé 'dev', cliquez sur le bouton 'Accept transfert' situé sur l'écran principal de gestion des volumes.
 
 ![Local Image](./images/volume-24.jpg)
 
