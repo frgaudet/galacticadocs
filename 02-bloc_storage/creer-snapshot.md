@@ -26,4 +26,14 @@ Le temps de traitement peut être important selon la taille du volume. Soyez pat
 
 ![Local Image](./images/volume-22.jpg)
 
-Vous pouvez maintenant attacher le volume, le monter et l'utiliser de nouveau.
+# Utilisation du snapshot
+
+Depuis ce snapshot vous pouvez soit :
+
+* créer un nouveau volume :
+
+![Local Image](./images/volume-28.jpg)
+
+* ou créer une instance (le volume sera créé automatiquement) :
+
+![Local Image](./images/volume-27.jpg)
