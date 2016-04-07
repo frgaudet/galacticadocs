@@ -8,6 +8,7 @@
 	* [Créer un volume](02-bloc_storage/creer-volume.md)
 	* [Augmenter la taille du volume](02-bloc_storage/resize.md)
 	* [Créer un snapshot](02-bloc_storage/creer-snapshot.md)
+	* [Transférer un volume](02-bloc_storage/transferer-volume.md)
 * [Utilisation avancée](03-utilisation_avancee/README.md)
 	* [Cloner une VM](03-utilisation_avancee/cloner-vm.md)
 	* [Cloud-Init : ajouter un user](03-utilisation_avancee/ajout-user.md)
