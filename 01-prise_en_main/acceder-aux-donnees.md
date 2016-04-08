@@ -62,8 +62,8 @@ A présent, effectuez les opérations suivantes :
 	-D fs.swift.service.sahara.password=******\
     -D fs.swift.service.sahara.tenant=petasky \
     -D fs.swift.service.sahara.auth.url=https://api.isima.fr:5000/v2.0/tokens/ \
-    swift://container.sahara/ \
+    swift://lsst.sahara/ \
     hdfs://`hostname`/user/$LOCAL_USERNAME/data/</span></div>
-    
+
 Les données du container `lsst` vont être rapatriées sur hdfs, dans le répertoire `data`. 
 
