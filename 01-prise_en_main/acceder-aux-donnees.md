@@ -23,14 +23,21 @@ Red hat like :
 
 <div class="command-line"><span class="command">sudo yum -y install python-swiftclient</span></div>
 
+Munissez vous des paramètres suivants :
+
+* Username swift (qui est le même que votre login galactica)
+* Password swift (qui est le même que votre password galactica)
+* Le nom du projet, par exemple `petasky`
+* Container swift, par exemple `lsst`
+
 Lancez le download :
 
 <div class="command-line"><span class="command">swift --os-tenant-name petasky \
 	  --os-region-name RegionOne \
 	  --os-username fred  \
-	  --os-password ***** \
+	  --os-password ******** \
 	  --os-auth-url https://api.isima.fr:5000/v2.0 \
-	  download container [object]</span></div>
+	  download lsst [object]</span></div>
 
 Si vous spécifiez simplement le nom du container, tout le contenu dudit container sera téléchargé. Si vous spécifiez un nom d'objet, seul ce dernier sera téléchargé.
 
