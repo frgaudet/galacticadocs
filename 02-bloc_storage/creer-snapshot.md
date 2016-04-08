@@ -1,8 +1,10 @@
 # Avertissement
 Pensez avant toute opération sur les volumes à démonter le disque depuis votre VM.
 
-Exemple : `sudo umount /dev/vdb`
+Exemple : 
 
+<div class="command-line"><span class="command">sudo umount /dev/vdb</span></div>
+<br>
 <div class="alert alert-warning">Cette commande ne peut fonctionner que si aucun processus n'utilise cette ressource.</div>
 
 # Détacher le volume
