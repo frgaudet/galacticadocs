@@ -11,6 +11,7 @@
 	* [Transférer un volume](02-bloc_storage/transferer-volume.md)
 * [Utilisation du service d'Elastic Data Processing](04-sahara/README.md)
 	* [Créer un cluster](04-sahara/cluster.md)
+	* [Lancer des jobs](04-sahara/jobs.md)
 * [Utilisation avancée](03-utilisation_avancee/README.md)
 	* [Cloner une VM](03-utilisation_avancee/cloner-vm.md)
 	* [Cloud-Init : ajouter un user](03-utilisation_avancee/ajout-user.md)
