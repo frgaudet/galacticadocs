@@ -11,6 +11,6 @@
         }
     },
     "styles": {
-        "website": "styles/bootstrap.css"
+        "website": "styles/custom.css"
     }
 }
