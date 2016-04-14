@@ -8,15 +8,16 @@ Sur l'écran représenté ici, il suffit de saisir les éléments suivants :
 
 * Zone de disponibilité, pour le moment il n'y en a qu'une : az1.
 * Le nom de notre instance (qui sera le hostname de la VM)
+
+<div class="alert alert-warning">Merci d'utiliser votre login comme préfixe aux noms de vos VM.
+Exemple : "fgaudet_mysql-server"</div>
+
 * Le gabarit de la VM. A droite vous avez un panneau qui détaille la signification précise dudit gabarit en terme de CPU, RAM, disk etc...
 * Le nombre d'instance que vous allez créer
 * Laissez les deux derniers champs avec leur valeur par défaut, nous verrons plus tard comment les utiliser.
 * Nous pouvons d'ors et déjà lancer lancer notre instance en cliquant sur 'Launch', mais voyons quelques paramètres supplémentaires. Cliquez sur l'onglet 'Access & security'.
 
 ![Local Image](./images/create-instance-02.jpg)
-
-<div class="alert alert-warning">Merci d'utiliser votre login comme préfixe aux noms de vos VM.
-Exemple : "fgaudet_mysql-server"</div>
 
 La liste déroulante vous permet de choisir la clé publique qui sera injectée "dans" la VM. Le groupe de sécurité représente les règles de firewall à appliquer à la VM. Ici, choisissez le groupe par défaut. Il ouvre en entrée seulement l'ICMP et le SSH. Nous verrons ultérieurement comment créer ses propres groupes de sécurité et comment modifier les règles.
 

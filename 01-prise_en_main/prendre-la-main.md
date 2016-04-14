@@ -27,7 +27,7 @@ La VM est désormais accessible via la floating IP depuis l'extérieur.
 
 ![Local Image](./images/ajouter-une-floating-ip-03.jpg)
 
-Vous pouvez dès lors créer un user local qui soit autorisé à se conncter à cette VM. Petit rappel : pour des raisons de sécurité il est absolument interdit d'utiliser le compte 'root' pour se connecter à distance. Vous pouvez alors libérer la floating IP.
+Vous pouvez dès lors créer un user local qui soit autorisé à se connecter à cette VM. Petit rappel : pour des raisons de sécurité il est absolument interdit d'utiliser le compte 'root' pour se connecter à distance. Vous pouvez alors libérer la floating IP.
 
 # Accès via la console
 
