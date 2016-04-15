@@ -15,7 +15,7 @@ Exemple : "fgaudet_mysql-server"</div>
 * Le gabarit de la VM. A droite vous avez un panneau qui détaille la signification précise dudit gabarit en terme de CPU, RAM, disk etc...
 * Le nombre d'instance que vous allez créer
 * Laissez les deux derniers champs avec leur valeur par défaut, nous verrons plus tard comment les utiliser.
-* Nous pouvons d'ors et déjà lancer lancer notre instance en cliquant sur 'Launch', mais voyons quelques paramètres supplémentaires. Cliquez sur l'onglet 'Access & security'.
+* Nous pouvons d'ors et déjà lancer lancer notre instance en cliquant sur 'Launch', mais voyons quelques paramètres supplémentaires. Cliquez sur l'onglet 'Access & Security'.
 
 ![Local Image](./images/create-instance-02.jpg)
 
