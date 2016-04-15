@@ -43,7 +43,7 @@ Si vous spécifiez simplement le nom du container, tout le contenu dudit contain
 
 ## Sur un cluster Hadoop ou Spark
 
-Dans le cas de cluster de type Hadoop, vous souhaitez généralement importer les données dans HDFS. Cela peut se faire directement, l'opération est assez simple. Après avoir créé votre cluster, affectez une floating IP et connectez vous dessus.
+Dans le cas de cluster de type Hadoop, vous souhaitez généralement importer les données dans HDFS. Cela peut se faire directement, l'opération est assez simple. [Après avoir créé votre cluster](../sahara/cluster.html "Créer un cluster"), affectez une floating IP et connectez vous dessus.
 
 Munissez vous des paramètres suivants :
 

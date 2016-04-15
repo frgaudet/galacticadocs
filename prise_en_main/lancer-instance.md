@@ -33,6 +33,6 @@ L'onglet post-creation permet de configurer la VM à l'issue du boot. L'idée ic
 
 Dans l'exemple ci-après, les packages mentionnés seront installés à l'issue du boot de la VM.
 
-Il est également possible de créer des utilisateurs, des groupes, d'exécuter des scripts... Voir le site de cloud-init pour plus d'info.
+Il est également possible de créer des utilisateurs, des groupes, d'exécuter des scripts... Voir le site de [cloud-init](https://cloudinit.readthedocs.org/en/latest/ "Cloud Init") pour plus d'info.
 
 ![Local Image](./images/create-instance-05.jpg)
