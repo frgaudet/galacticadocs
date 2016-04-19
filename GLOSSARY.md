@@ -24,3 +24,6 @@ Nom du projet gérant les identités.
 
 # Ceilometer
 Nom du projet permettant la collecte et l'accès aux statistiques de la plateforme.
+
+# Floating IP
+Les floating IP sont des IP publiques que l'on peut associer à l'interface d'une VM afin de pourvoir accéder à la VM depuis l'extérieur. Elles sont par conséquent indispensable pour prendre initialement la main.

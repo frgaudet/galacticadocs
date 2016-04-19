@@ -15,8 +15,4 @@ Le téléchargement de la clé privée s'effectue automatiquement. Dans le cas c
 
 <div class="alert alert-warning">La clé privée n'est pas stockée sur la plateforme, si vous la perdez, personne ne pourra vous la restituer.</div>
 
-Lorsqu'une VM est instanciée, un processus (cloud-init) installé dans l'image de la VM va récupérer la clé et l'installer dans le fichier '.ssh/authorized_keys' d'un user particulier. Ainsi il suffira de lancer la commande suivante pour se connecter :
-
-<div class="command-line"><span class="command">ssh -i key-sersoze username@XX.XX.XX.XX</span></div>
-
-Le username utilisé depend de la distribution. Sur ubuntu, le user est 'ubuntu'. Pour les distributions centos il s'agit de 'cloud-user' ou bien de 'centos' selon les versions. Si vous utilisez d'autres types d'images, il faudra alors rechercher quel est le user par défaut.
+Lorsqu'une VM est instanciée, un processus (cloud-init) installé dans l'image de la VM va récupérer la clé et l'installer dans le fichier '.ssh/authorized_keys' d'un user particulier.
