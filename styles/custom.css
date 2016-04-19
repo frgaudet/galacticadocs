@@ -6798,3 +6798,16 @@ div.command-line .output span {
     top: -1000px;
     left: -1000px
 }
+.callout { 
+  width: 20px; 
+}
+
+img[alt=tiny] { 
+  width: 50%;
+  text-align: center;
+}
+
+img[alt=small] { 
+  width: 70%;
+  text-align: center;
+}
