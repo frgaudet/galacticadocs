@@ -15,3 +15,6 @@
 * [Utilisation avancée](utilisation_avancee/README.md)
 	* [Cloner une VM](utilisation_avancee/cloner-vm.md)
 	* [Cloud-Init : ajouter un user](utilisation_avancee/ajout-user.md)
+* [Resources](resources/README.md)
+	* [Exemple Spark 1 : Greather than](resources/spark1.md)
+	* [Exemple Spark 2 : Use RDD](resources/spark2.md)
