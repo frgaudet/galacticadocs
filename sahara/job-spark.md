@@ -58,7 +58,9 @@ Les champs à renseigner ensuite dépendent du type d'exécutable que vous souha
  * Username Swift : notez que le nom de la variable 'fs.swift.service.sahara.username' est immuable
  * Password Swift : le nom de la variable doit également être respecté.
 
-<div class="alert alert-notice">Tous les couples name/value de la section configuration vont être placés dans le fichier core-site.xml du master.</div>
+<div class="alert alert-warning">Le format d'accès aux containers swift est de la forme suivante swift://container.sahara/<br>N'oubliez pas le trailing slash.</div>
+
+<div class="alert alert-notice">Pour information, tous les couples name/value de la section configuration vont être placés dans le fichier core-site.xml du master.</div>
 
 **Section Arguments :**
 
