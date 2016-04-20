@@ -1,5 +1,5 @@
 {
-	"gitbook": "2.x.x",
+	"gitbook": ">=2.x.x",
 	"title": "Documentation utilisateur",
 	"description": "Documentation utilisateur de la plateforme de cloud computing Galactica",
 	"language": "fr",
