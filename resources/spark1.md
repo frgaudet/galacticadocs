@@ -1,5 +1,7 @@
 # SparkGreaterThan
 
+Auteur : [Bastien Doreau](mailto:bdoreau@isima.fr)
+
 # Création
 Ce fichier jar a été compilé et packagé par Maven
 
