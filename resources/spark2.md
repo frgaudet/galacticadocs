@@ -11,10 +11,10 @@ Ce fichier jar a été compilé et packagé par Maven
 # Exécution
 Lancé grâce au plugin EDP ou bien manuellement, avec la commande :
 
-<div class="command-line"><span class="command">./bin/spark-submit 
-	--class sparkjava.SparkUseRDD --master local 
-	sparkUseRDD.jar 
-	hdfs://clusterspark-masterspark-0:8020/user/ubuntu/src/obj.csv 
+<div class="command-line"><span class="command">./bin/spark-submit \
+	--class sparkjava.SparkUseRDD --master local \
+	sparkUseRDD.jar \
+	hdfs://clusterspark-masterspark-0:8020/user/ubuntu/src/obj.csv \
 	swift://output.sahara/</span></div>
 
 # Principe
