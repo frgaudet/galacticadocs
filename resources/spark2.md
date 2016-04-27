@@ -9,7 +9,8 @@ Ce fichier jar a été compilé et packagé par Maven
 	mvn package
 
 # Exécution
-Lancée avec la commande :
+Lancé grâce au plugin EDP ou bien manuellement, avec la commande :
+
 <div class="command-line"><span class="command">./bin/spark-submit 
 	--class sparkjava.SparkUseRDD --master local 
 	sparkUseRDD.jar 
