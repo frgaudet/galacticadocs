@@ -1,0 +1,1 @@
+Ce chapitre rassemble les ressources utilisées au gré de cette documentation.
