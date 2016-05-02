@@ -21,4 +21,4 @@
 * [Ressources](resources/README.md)
 	* [Exemple Spark 1 : Greather than](resources/spark1.md)
 	* [Exemple Spark 2 : Use RDD](resources/spark2.md)
- 	* [Exemple Spark 3 : Join Lsst](resources/spark3.md)
+	* [Exemple Spark 3 : Join Lsst](resources/spark3.md)
