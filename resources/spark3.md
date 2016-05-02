@@ -23,15 +23,16 @@ Cet éxécutable permet d'effectuer une jointure entre la table ForcedSource et 
 Le champ "deepSourceId" et le champ "psfFlux" de la table ForcedSource sont récupérés ainsi que les champs "deepSourceId", "ra" et "decl" de la table Object.
 
 Une jointure est réalisée sur le champ commun "deepSourceId".
-Le résultat de la jointure étant du type JavaPairRDD<String, Tuple2<String, String>>, càd peu pratique à utiliser, toutes les valeurs sont concaténées dans un String.
+Le résultat de la jointure étant du type `JavaPairRDD<String, Tuple2<String, String>>`, càd peu pratique à utiliser, toutes les valeurs sont concaténées dans un String.
 
-Le résultat, appelé joinCleaned est donc un JavaRDD<String>
+Le résultat, appelé joinCleaned est donc un `JavaRDD<String>`
 Ce résultat est enregistré dans le répertoire indiqué par le troisième argument.
 
 Au total trois arguments doivent être donnés : les deux tables en question ainsi qu'un répertoire où sera écrit le résultat.
 Exemple :  arg1: ForcedSource_100.32.csv    arg2: Object_10032.csv     arg3: outputLsst  
 
 # Code
+
 ```java
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -163,3 +164,4 @@ public class SparkLsst {
 		    context.stop();
 	}
 }
+```
