@@ -12,98 +12,100 @@ Ce fichier jar a été compilé et packagé par Maven
 Lancé grâce au plugin EDP ou bien manuellement, avec la commande :
 
 <div class="command-line"><span class="command">./bin/spark-submit \
-	--class sparkjava.SparkGreaterThan \
-	--master local spark2jobsOutput.jar \
-	hdfs://clusterspark-masterspark-0:8020/user/ubuntu/src/obj.csv \
-	/user/ubuntu/test.txt</span></div>
+	--class sparkjava.SparkGreaterThan2 \
+	--master local sparkGT2.jar \
+	swift://datastore.sahara/obj.csv \
+	swift://outputObj.sahara/ </span></div>
 
 # Principe
-Ce programme récupère obj.csv dans HDFS (argument en entrée)
+Ce JAR récupère un fichier csv et opére plusieurs traitements : Récupération de certaines valeurs sur chaque ligne (tuple), filtrage de ces valeurs sur des critères précis, décompte des résultats obtenus, enregistrement d'un JavaRDD en base.
 
-	map1job1 : récupération du premier champ (ID) → JavaRDD<Long>
-	map2job1 : filtre des champ dont la valeur est supérieure 
-	           à 433327840000000 → JavaRDD<Long>
+Ce JAR est appliqué sur obj.csv (voir conteneur Swift sur Openstack), une base de type 'lsst' de 4 millions de tuples. 
+Des marqueurs de temps permettent de quantifier le temps pris pour ces opérations. Comme attendu, les opérations de mapping sont négligeables (qq millisecondes). Les traitements sont effectués lors des count().
+
+Opérations :
+
+	map1job1 : récupération du champ 1 (ID) → JavaRDD<Long>
 	map1job2 : récupération du champ 55 →  JavaRDD<Long>
-	map1job2 : mise en cache
-	map2job2 : filtre des valeurs nulles → JavaRDD<Long>
-	map3job2 : filtre des valeurs >0,17 et < 0,18 → JavaRDD<Long>
+	map1job3.: récupération du champ 3 → JavaRDD<Long> 
+	map2job1 : filtre champ 1 - valeur > 433327840000000 → JavaRDD<Long>
+	map2job2 : filtre champ 3 - valeurs > 90 → JavaRDD<Long>
+	map3job2 : filtre champ 55 - valeurs >0,17 et < 0,18 → JavaRDD<Long>
+	nbVal1.: compte le nb de lignes de map2job1 → Long
+	nbVal3.: compte le nb de lignes de map2job2 → Long
+	nbVal55.: compte le nb de lignes de map3job2 → Long
+	+ saveAsTextFile.: enregistre le JavaRDD<Long> map2job1 dans l'argument donné en sortie.
 
-Le programme écrit dans un fichier texte les différents résultats (argument en sortie)
+Résultats attendus : 
 
+	Valeur 1 Objectid  > 433327840000000 : 801171
+	Valeur 3 ra_ps > 90° : 752629
+	Valeur 55 ue1_sg > 0.17 & < 0.18 : 17360
+	
 # Code
 
 ```java
 package sparkjava;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.api.java.function.FilterFunction;
 import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
-import org.apache.spark.api.java.function.MapFunction;
-import org.apache.spark.api.java.function.PairFunction;
-import org.slf4j.Logger;
 
 import scala.Tuple2;
 
 
-public class SparkGreaterThan {
-
+public class SparkGreaterThan2 {
 	private static JavaSparkContext context;
 
 	@SuppressWarnings("serial")
 	public static void main(String[] args) {
 		
-	    SparkConf conf = new SparkConf().setAppName("sparkgreaterthan").setMaster("local");
-	    context = new JavaSparkContext(conf);
+		
+	    SparkConf conf = new SparkConf().setAppName("sparkgreaterthan"); //.setMaster("local");
 
+	    context = new JavaSparkContext(conf);
+	    
+	    //////////////////////////////////////////////////////////////////////////////////////
+	    // Recuperation des arguments  arg 1 : fichier à ouvrir   ,  arg2 : fichier à sauver
 	    String inputFile = args[0];
 	    String outputDirectory = args[1];
 	    
-	    //Long startTime = context.startTime();
-	    long start = System.currentTimeMillis();
-	    
+	    // Récupération de l'utilisateur
+	    String user = context.sparkUser();
+
+	    ///////////////////////////////////////////////////////////////////////////////////
+	    // Récupération du fichier et enregistrement dans un JavaRDD
+	    // Chaque ligne du fichier correspond à un String
 	    //JavaRDD<String> file = context.textFile("hdfs://clusterspark-masterspark-001:8020/user/ubuntu/src/obj.csv");
 	    JavaRDD<String> file = context.textFile(inputFile);
+	    
+	    long start = System.currentTimeMillis();
 
-		String user = context.sparkUser();
-		String log="Log :";
-	   
-		boolean trace=conf.isTraceEnabled();
-		
-		JavaRDD<Long> map1job2=file.map(new Function<String, Long>() {
-			@Override
-			public Long call(String s) throws Exception {
-				int nb_column=55;
-				
-				int index=0;//=s.indexOf(",");
-				
-				for(int i=0; i< nb_column; i++)
-				{
-					index=s.indexOf(",");
-					s=s.substring(index, s.length());
-				}
-				
-				int index2=s.indexOf(",");
-				s=s.substring(0,index2);
-				
-				if (s.equals("")) {s="0";}
-				
-				return Long.parseLong(s);
-			}		
-		});
-		
+////////////// MAPPING //////////////
+
+	    //////////////////////////////////////////////////////////////
+	    // Récupération de le 55e valeur de chaque ligne (Long) et 
+	    // enregistrement dans un JavaRDD<Long>
+		JavaRDD<Double> map1job2 = file.map(new Function<String, Double>() {
+			  public Double call(String s) { 
+				  String[] fields=s.split(",");
+				  if (fields[54].equals(""))
+				  {fields[54]="-1";}
+				  Double goodVal=Double.parseDouble(fields[54]);
+				  
+				  return goodVal; 
+				  }
+			});
 		map1job2.cache();
-		
+		// Le résultat JavaRDD<Long> map1job2 est mis en cache
+
+	    //////////////////////////////////////////////////////////////
+	    // Récupération de le 1e valeur de chaque ligne (Long) et 
+	    // enregistrement dans un JavaRDD<Long>
 		JavaRDD<Long> map1job1=file.map(new Function<String, Long>(){
 			@Override
 			public Long call(String s) throws Exception {
@@ -111,7 +113,29 @@ public class SparkGreaterThan {
 				return Long.parseLong(s);
 			}			
 		});
+		
+	    //////////////////////////////////////////////////////////////
+	    // Récupération de le 3e valeur de chaque ligne (Long) et 
+	    // enregistrement dans un JavaRDD<Long>
+		JavaRDD<Double> map1job3 = file.map(new Function<String, Double>() {
+			  public Double call(String s) { 
+				  String[] fields=s.split(",");
+				  if (fields[2].equals(""))
+				  {fields[2]="-1";}
+				  Double goodVal=Double.parseDouble(fields[2]);
+				  
+				  return goodVal; 
+				  }
+			});
 
+		long endmaps=System.currentTimeMillis();
+		long timeEndMaps= endmaps-start;
+		
+////////////// FILTRAGE //////////////
+		
+		///////////////////////////////////////////////////
+		// Filtrage de la 1e valeur -> toutes les valeurs supérieures
+		// à une valeur précise sont récupérées
 		JavaRDD<Long> map2job1=map1job1.filter(new Function<Long,Boolean>(){
 			@Override
 			public Boolean call (Long i){
@@ -119,77 +143,79 @@ public class SparkGreaterThan {
 				else return false;
 			}
 		});
-				
-		JavaRDD<Long> map2job2=map1job2.filter(new Function<Long,Boolean>(){
+		
+		///////////////////////////////////////////////////
+		// Filtrage de la 3e valeur -> toutes les valeurs > à 90
+		// sont récupérées 
+		JavaRDD<Double> map2job2=map1job3.filter(new Function<Double,Boolean>(){
 			@Override
-			public Boolean call (Long i){
-				if (i==0) return true;
+			public Boolean call (Double i){
+				if (i>90) return true;
 				else return false;
 			}
 		});
 		
-		JavaRDD<Long> map3job2=map1job2.filter(new Function<Long, Boolean>() {
+		///////////////////////////////////////////////////
+		// Filtrage de la 55e valeur -> toutes les valeurs entre une 
+		// valeur min et une valeur max sont récupérées
+		JavaRDD<Double> map3job2=map1job2.filter(new Function<Double, Boolean>() {
 			@Override
-			public Boolean call(Long i) throws Exception {
+			public Boolean call(Double i) throws Exception {
 				if (i>0.17 && i<0.18) return true;
 				else return false;
 			}
 		});
 		
-		long endmaps=System.currentTimeMillis();
+		long endfilter=System.currentTimeMillis();
+		long timeFilter= endfilter-endmaps;
 		
-		long timeEndMaps= endmaps-start;
 		
-		long nb=map2job1.count();	
-				
+////////////// COUNT //////////////		
+		
+		// Compte le resultat du filtre de la 1e valeur
+		long nbVal1=map2job1.count();	
+		
 		long endcount1=System.currentTimeMillis();
-			
-		long timeCount1=endcount1-endmaps;
-		//JavaRDD<String> res = String.valueOf(map2.count());
+		long timeCount1=endcount1-endfilter;
 		
-		long nb2=map2job2.count();
-		//Long endTime = context.startTime();
-		long endcount2=System.currentTimeMillis();
-		long timeCount2=endcount2-endcount1;
-		
-		long nb3=map3job2.count();
+		// Compte le resultat du filtre de la 4e valeur
+		long nbVal3=map2job2.count();
 		
 		long endcount3=System.currentTimeMillis();
-		long timeCount3=endcount3-endcount2;
+		long timeCount3=endcount3-endcount1;
 		
+		// Compte le resultat du filtre de la 55e valeur
+		long nbVal55=map3job2.count();
+		
+		long endcount55=System.currentTimeMillis();
+		long timeCount55=endcount55-endcount3;
+		
+		///////////////////////////////////////////
+		// Enregistrement du resultat de filtrage
+		// de la 1e valeur dans le fichier donné en argument	
+		map2job1.saveAsTextFile(outputDirectory);
+
+		long saveJavaRdd=System.currentTimeMillis();
+		long timeSaveJavaRDD=saveJavaRdd-endcount55;
+		
+		// Calcule le temps total
 		long timeTotal = System.currentTimeMillis() - start;
-		
-		System.out.println("Nb lines field 1 :" +nb);
-		System.out.println("Nb lines field 55 =0 :" +nb2);
-		System.out.println("Nb lines field 55 >0.17 :" +nb3);
 
-		System.out.println("Trace ? :"+trace);
-		System.out.println("Spark user :" +user); 
-		System.out.println("\n"); 
+	   // Affichage
+	   System.out.println("Nb lines Objectid > 433327840000000 :" +nbVal1);
+	   System.out.println("Nb lines ra_ps > 90° :" +nbVal3);
+	   System.out.println("Nb lines ue1_sg >0.17 & <0.18:" +nbVal55);
+	   System.out.println("Spark user :" +user); 
+	   System.out.println("\n"); 
+	   System.out.println("timeTotal " +timeTotal/1000+" sec"); 
+	   System.out.println("time Maps "+timeEndMaps+" millisec");
+	   System.out.println("time Filters "+timeFilter+" millisec");
+	   System.out.println("timeCount1 "+timeCount1/1000+" sec");
+	   System.out.println("timeCount4 "+timeCount3/1000+" sec");
+	   System.out.println("timeCount55 "+timeCount55/1000+" sec");
+	   System.out.println("timeSaveFile "+timeSaveJavaRDD/1000+" sec");
 
-		System.out.println("timeTotal " +timeTotal/1000+" sec"); 
-		System.out.println("timeMaps "+timeEndMaps+" millisec");
-		System.out.println("timeCount1 "+timeCount1/1000+" sec");
-		System.out.println("timeCount2 "+timeCount2/1000+" sec");
-		System.out.println("timeCount3 "+timeCount3/1000+" sec"); 
-	    
-		FileWriter fileResult;
-		try {
-		//	fileResult = new FileWriter("/user/ubuntu/results/resultSparkGreaterThan.txt");
-			fileResult = new FileWriter(outputDirectory);
-			
-			fileResult.write(" Nb de tuples dont l'id est > 433327840000000 : "+nb);
-			fileResult.write("context.sparkUser() :"+user);
-			fileResult.write("context.version() :");
-			fileResult.write("trace.isEnabled() :"+trace);
-
-			fileResult.flush();
-			fileResult.close();
-			System.out.println("Write file !");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		context.stop();
+	   context.stop();
 	}
 }
 ```
