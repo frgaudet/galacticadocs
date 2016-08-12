@@ -9,7 +9,7 @@ Exemple : `sudo umount /dev/vdb`
 
 Après avoir démonté votre volume depuis votre VM, procédez au détachement via le menu contextuel.
 
-![Local Image](./images/volume-20.jpg)
+![Local Image](./images/volume-04.jpg)
 ![Local Image](./images/volume-16.jpg)
 
 # Augmenter la taille
