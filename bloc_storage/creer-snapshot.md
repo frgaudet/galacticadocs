@@ -11,14 +11,14 @@ Exemple :
 
 Après avoir démonté votre volume depuis votre VM, procédez au détachement via le menu contextuel.
 
-![Local Image](./images/volume-20.jpg)
+![Local Image](./images/volume-04.jpg)
 ![Local Image](./images/volume-16.jpg)
 
 # Créer le snapshot
 
 Puis, cliquez sur 'Create snapshot' toujours depuis le menu contextuel.
 
-![Local Image](./images/volume-17.jpg)
+![Local Image](./images/volume-20.jpg)
 
 Indiquez le nom du snapshot, et cliquez sur 'Create Volume Snapshot'
 
@@ -30,12 +30,6 @@ Le temps de traitement peut être important selon la taille du volume. Soyez pat
 
 # Utilisation du snapshot
 
-Depuis ce snapshot vous pouvez soit :
-
-* créer un nouveau volume :
+Depuis ce snapshot vous pouvez par exemple créer un nouveau volume :
 
 ![Local Image](./images/volume-28.jpg)
-
-* ou créer une instance (le volume sera créé automatiquement) :
-
-![Local Image](./images/volume-27.jpg)
