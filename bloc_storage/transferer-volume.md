@@ -8,17 +8,19 @@ Le principe est d'accompagner le transfert d'une clé de sécurité. Le destinat
 
 ## Détacher le volume
 
-Après avoir démonté votre volume depuis votre VM, procédez au détachement via le menu contextuel.
+Après avoir démonté votre volume depuis votre VM, procédez au détachement via le menu contextuel. Notez que nous sommes placés dans le projet 'DSI'.
 
-![Local Image](./images/volume-20.jpg)
-![Local Image](./images/volume-16.jpg)
+![Local Image](./images/volume-30.jpg)
+![Local Image](./images/volume-31.jpg)
 
 ## Créer le transfert
-Depuis le menu contextuel accessible à partir de l'écran de gestion des modules, choisir l'option 'Create Transfert'. Donnez un identifiant à cette opération.
+Depuis le menu contextuel accessible à partir de l'écran de gestion des modules, choisir l'option 'Create Transfert'.
+
+![Local Image](./images/volume-09.jpg)
+
+Donnez un identifiant à cette opération puis cliquez sur 'Create Volume Transfert'
 
 ![Local Image](./images/volume-08.jpg)
-
-Cliquez sur 'Create Volume Transfert'
 
 Sur l'écran suivant, notez précieusement le 'Transfert ID' ainsi que l'Autorization key', et communiquez les à la personne à qui vous souhaitez transférer le volume.
 
@@ -36,6 +38,6 @@ Renseignez le 'Transfert ID' ainsi que l'Authorization Key' et validez.
 
 ![Local Image](./images/volume-25.jpg)
 
-Le volume est désormais disponible :
+Le volume est désormais disponible dans le projet 'dev':
 
 ![Local Image](./images/volume-26.jpg)
