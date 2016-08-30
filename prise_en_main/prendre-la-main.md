@@ -88,3 +88,18 @@ Cliquez sur 'Oui', vous avez maintenant un accès SSH fonctionnel :
 **Après avoir créé un user local**, à partir du navigateur web, cliquez sur l'instance afin d'ouvrir l'écran qui détaille les caractéristiques de votre VM. Cliquez ensuite sur l'onglet 'Console'.
 
 ![Local Image](./images/console-01.jpg)
+
+# Utilisation des claviers virtuels
+Le clavier géré par l'accès console répond aux besoins de base, mais parfois vous allez avoir besoin d'uiliser des caractères un peu exotiques tels que le pipe "|", l'esperluette "&", mais que le clavier console ne sait pas gérer.
+
+Une méthode toute simple consiste à utiliser les claviers virtuels founis par la plupart des desktops :
+
+## Linux
+Par exemple sous Ubuntu, l'utilitaire en question s'appelle `onboard`. Cliquez sur le caractère qui vous intéresse, et il sera inséré à l'endroit où se trouve votre pointeur.
+
+![Local Image](./images/onboard-01.jpg)
+
+## Windows
+Sous Windows il s'appelle `osk` (comme On-Screen Keyboard).
+
+![Local Image](./images/osk-01.jpg)
