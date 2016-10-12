@@ -55,7 +55,7 @@ Puis dans l'onglet 'Node Processes' vous cochez les processus que le plugin sera
 
 # Définition du modèle de noeud : Worker
 
-Nous reprennons le même principe de construction que celui décrit ci-dessus. Cliquez sur 'Create Worker Node Group Template'. Un écran s'affiche :
+Nous reprenons le même principe de construction que celui décrit ci-dessus. Cliquez sur 'Create Worker Node Group Template'. Un écran s'affiche :
 
 ![Local Image](./images/edp-10.jpg)
 
