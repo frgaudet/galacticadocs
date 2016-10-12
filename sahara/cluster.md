@@ -59,7 +59,7 @@ Nous reprennons le même principe de construction que celui décrit ci-dessus. C
 
 ![Local Image](./images/edp-10.jpg)
 
-A la différence du modèle Master, nous choississons ici les processus 'datanode' et 'slave'.
+A la différence du modèle Master, nous choisissons ici les processus 'datanode' et 'slave'.
 
 ![Local Image](./images/edp-17.jpg)
 
