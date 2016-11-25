@@ -1,9 +1,9 @@
 {
-	"gitbook": ">=2.x.x",
+	"gitbook": ">=3.x.x",
 	"title": "Documentation utilisateur",
 	"description": "Documentation utilisateur de la plateforme de cloud computing Galactica",
 	"language": "fr",
-    "plugins": ["katex", "include", "mermaid"],
+    "plugins": ["katex", "include", "mermaid-gb3"],
     "links": {
         "sidebar": {
             "Contact": "mailto:gaudet@isima.fr",
@@ -12,5 +12,10 @@
     },
     "styles": {
         "website": "styles/custom.css"
+    },
+    "pluginsConfig": {
+        "theme-default": {
+             "showLevel": true
+        }
     }
 }

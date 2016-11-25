@@ -2,12 +2,12 @@
 
 Maintenant que notre cluster est opérationnel, nous allons y lancer un traitement. Le processus de création des jobs est le suivant :
 
-{% mermaid %}
+```mermaid
 graph LR;
   A(Stockage du binaire)-->B;
-  B(Définition du modèle de job)-->C;
+  B(Définition du <br> modèle de job)-->C;
   C(Lancement du job);
-{% endmermaid %}
+```
 
 # Stockage des binaires
 

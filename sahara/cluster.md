@@ -2,13 +2,13 @@
 
 La construction d'un cluster implique de suivre ces 4 étapes :
 
-{% mermaid %}
+```mermaid
 graph LR;
   A(Choix du plugin)-->B;
-  B(Définition des \nmodèles de noeuds\nMaster et Workers)-->C;
-  C(Définition  du modèle \nde cluster)-->D;
+  B(Définition des modèles <br> de noeuds Master et Workers )-->C;
+  C(Définition du <br> modèle de cluster )-->D;
   D(Lancement du cluster);
-{% endmermaid %}
+```
 
 Le plugin propose d'ailleurs une page qui permet d'enchainer ces étapes. Cliquez sur 'Cluster Creation Guide' dans le menu 'Data Processing' / 'Guides'.
 
