@@ -5,13 +5,29 @@ cache:
     - node_modules/ # Node modules and dependencies
 
 before_script:
-  - npm install gitbook-cli -g
-  - gitbook fetch latest 
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
-pages:
-  stage: deploy
+build:
+  stage: build
   script:
+    - npm install gitbook-cli -g
+    - gitbook fetch latest 
+    - gitbook install
     - gitbook build
+    
   artifacts:
-    paths:
-      - public 
+    untracked: true
+      
+deploy:
+  stage: deploy
+  dependencies: 
+    - build
+  script:
+    - (apt-get update && apt-get -y install rsync) || yum install rsync
+    - rsync -av --delete _book/* update@galactica.isima.fr:/var/www/html/galacticadocs
+    - ssh update@galactica.isima.fr 'find /var/www/html/galacticadocs -type f -exec chmod -R 644 {} \;'
+    - ssh update@galactica.isima.fr 'find /var/www/html/galacticadocs -type d -exec chmod -R 755 {} \;'
