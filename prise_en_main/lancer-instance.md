@@ -23,9 +23,15 @@ La liste déroulante vous permet de choisir la clé publique qui sera injectée 
 
 ![Local Image](./images/create-instance-03.jpg)
 
-L'onglet suivant vous permet de sélectionner les réseaux qui seront attachés à la VM. Dans cet exemple, il n'y en a qu'un. Nous pourrions cependant attacher la VM plusieurs subnets, nous aurions alors autant d'interface de crées dans la VM (eth0, eth1 etc...) que nécessaire.
+L'onglet suivant vous permet de sélectionner les réseaux qui seront attachés à la VM. Dans cet exemple, il n'y en a qu'un. Il est sélectionné automatiquement par défaut.
 
 ![Local Image](./images/create-instance-04.jpg)
+
+En revanche, lorsque plusieurs réseaux sont définis, il est nécessaire d'en choisir explicitement au moins un. Pour le projet 'research' par exemple, prenez 'research-net', pour le projet 'petasky', choisissez 'petasky-net'. Ces réseaux sont absoluments nécessaires, sinon la VM n'accèdera pas à Internet.
+
+![Local Image](./images/create-instance-05.jpg)
+
+<div class="alert alert-warning">Evitez de créer votre instance en ajoutant le réseau 'net-vers-isima'. Faites-le dans un second temps une fois que la VM a démarré. (voir chapitre Prendre la main sur l'instance) </div>
 
 # Paramètres optionnels
 
@@ -34,5 +40,3 @@ L'onglet post-creation permet de configurer la VM à l'issue du boot. L'idée ic
 Dans l'exemple ci-après, les packages mentionnés seront installés à l'issue du boot de la VM.
 
 Il est également possible de créer des utilisateurs, des groupes, d'exécuter des scripts... Voir le site de [cloud-init](https://cloudinit.readthedocs.org/en/latest/ "Cloud Init") pour plus d'info.
-
-![Local Image](./images/create-instance-05.jpg)

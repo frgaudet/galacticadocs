@@ -5,15 +5,32 @@ Vous pouvez prendre la main sur une instance de deux façons différentes.
 * Par SSH
 * Par la console
 
-Si vous n'avez rien spécifié de particulier lors de l'instantiation, alors la seule manière dans un premier temps de prendre la main sur la VM est la méthode SSH. Pour prendre la main à partir de la console, il faut au préalable avoir créé un user local à cet effet.
+Si vous n'avez rien spécifié de particulier lors de l'instantiation, alors la seule manière dans un premier temps de prendre la main sur la VM est la méthode SSH. En effet pour prendre la main à partir de la console, il faut au préalable avoir créé un user local à cet effet.
 
-Le username utilisé depend de la distribution. Sur ubuntu, le user est 'ubuntu'. Pour les distributions centos il s'agit de 'cloud-user' ou bien de 'centos' selon les versions. Si vous utilisez d'autres types d'images, il faudra alors rechercher quel est le user par défaut.
+Le username utilisé depend de la distribution. Sur ubuntu, le user par défaut est 'ubuntu'. Pour les distributions centos il s'agit de 'centos', pour CoreOS il s'agit de 'core'. Si vous utilisez d'autres types d'images, il faudra alors rechercher quel est le user défini par la distribution.
 
 # Accès SSH
 
-Pour se connecter en SSH, il faut tout d'abord associer une floating IP à la VM.
+Pour se connecter en SSH, distinguons deux cas :
 
-##Mise en oeuvre côté OpenStack
+* Vous vous connectez depuis l'ISIMA
+* Vous vous connectez depuis l'extérieur
+
+L'ISIMA offre un accès direct aux VM depuis un réseau privé. En revanche si vous n'êtes pas physiquement à l'ISIMA, vous établissez une connection depuis l'extérieur, il vous faudra affecter une floating-ip.
+
+##Connection depuis l'ISIMA
+
+Depuis le menu contextuel de la VM, cliquez sur 'Attach Interface'. Choisissez le réseau appelé `net-vers-isima`. 
+
+![Local Image](./images/attache-reseau-01.jpg)
+
+Si nécessaire rafraîchissez la page récapitulative des instances afin de voir apparaître l'adresse IP qui aura été automatiquement attribuée.
+
+![Local Image](./images/attache-reseau-02.jpg)
+
+Vous pouvez maintenant passer à la section ci-dessous qui décrit la mise en oeuvre d'une connection SSH en fonction du type de client que vous utilisez.
+
+##Connection depuis l'extérieur
 
 A partir du menu déroulant choisir l'option 'Associate Floating IP'.
 
