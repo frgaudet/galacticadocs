@@ -5,6 +5,7 @@
     * [Définir une clé de sécurité](prise_en_main/definir_cle_securite.md)
     * [Lancer une instance](prise_en_main/lancer-instance.md)
     * [Prendre la main sur l'instance](prise_en_main/prendre-la-main.md)
+    * [Ouvrir des flux](prise_en_main/securite.md)
     * [Accéder aux données](prise_en_main/acceder-aux-donnees.md)
 * [Utiliser le service bloc storage](bloc_storage/README.md)
     * [Créer un volume](bloc_storage/creer-volume.md)
