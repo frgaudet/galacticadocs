@@ -36,7 +36,7 @@ Lancez le download :
 	  --os-region-name RegionOne \
 	  --os-username fred  \
 	  --os-password ******** \
-	  --os-auth-url https://api.isima.fr:5000/v2.0 \
+	  --os-auth-url https://auth.oscloud.isima.fr/v2.0 \
 	  download lsst [object]</span></div>
 
 Si vous spécifiez simplement le nom du container, tout le contenu dudit container sera téléchargé. Si vous spécifiez un nom d'objet, seul ce dernier sera téléchargé.
@@ -68,7 +68,7 @@ A présent, effectuez les opérations suivantes :
 <div class="command-line"><span class="command">hadoop distcp -D fs.swift.service.sahara.username=fred \
 	-D fs.swift.service.sahara.password=******\
     -D fs.swift.service.sahara.tenant=petasky \
-    -D fs.swift.service.sahara.auth.url=https://api.isima.fr:5000/v2.0/tokens/ \
+    -D fs.swift.service.sahara.auth.url=https://auth.oscloud.isima.fr/v2.0/tokens/ \
     swift://lsst.sahara/ \
     hdfs://`hostname`/user/$LOCAL_USERNAME/data/</span></div>
 
