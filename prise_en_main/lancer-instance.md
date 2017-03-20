@@ -27,11 +27,9 @@ L'onglet suivant vous permet de sélectionner les réseaux qui seront attachés 
 
 ![Local Image](./images/create-instance-04.jpg)
 
-En revanche, lorsque plusieurs réseaux sont définis, il est nécessaire d'en choisir explicitement au moins un pour booter la VM. Pour le projet 'petasky' par exemple, choisissez 'petasky-net'.
+En revanche, lorsque plusieurs réseaux sont définis, il est nécessaire d'en choisir explicitement au moins un pour booter la VM. Par exemple, ci-dessous :
 
 ![Local Image](./images/create-instance-05.jpg)
-
-<div class="alert alert-warning">Evitez de créer votre instance en ajoutant le réseau 'net-vers-isima'. Faites-le dans un second temps une fois que la VM a démarré. (voir chapitre Prendre la main sur l'instance) </div>
 
 # Paramètres optionnels
 
