@@ -11,27 +11,6 @@ Le username utilisé depend de la distribution. Sur ubuntu, le user par défaut 
 
 # Accès SSH
 
-Pour se connecter en SSH, distinguons deux cas :
-
-* Vous vous connectez depuis l'ISIMA
-* Vous vous connectez depuis l'extérieur
-
-L'ISIMA offre un accès direct aux VM depuis un réseau privé. En revanche si vous n'êtes pas physiquement à l'ISIMA, vous établissez une connection depuis l'extérieur, il vous faudra affecter une floating-ip.
-
-##Connection depuis l'ISIMA
-
-Depuis le menu contextuel de la VM, cliquez sur 'Attach Interface'. Choisissez le réseau appelé `net-vers-isima`. 
-
-![Local Image](./images/attache-reseau-01.jpg)
-
-Si nécessaire rafraîchissez la page récapitulative des instances afin de voir apparaître l'adresse IP qui aura été automatiquement attribuée.
-
-![Local Image](./images/attache-reseau-02.jpg)
-
-Vous pouvez maintenant passer à la section ci-dessous qui décrit la mise en oeuvre d'une connection SSH en fonction du type de client que vous utilisez.
-
-##Connection depuis l'extérieur
-
 A partir du menu déroulant choisir l'option 'Associate Floating IP'.
 
 ![Local Image](./images/ajouter-une-floating-ip-01.jpg)
@@ -40,11 +19,11 @@ Choisir l'IP à associer, cliquez sur 'Associate'.
 
 ![Local Image](./images/ajouter-une-floating-ip-02.jpg)
 
-La VM est désormais accessible via la floating IP depuis l'extérieur.
+La VM est désormais accessible via la floating IP.
 
 ![Local Image](./images/ajouter-une-floating-ip-03.jpg)
 
-Vous pouvez dès lors créer un user local qui soit autorisé à se connecter à cette VM. Petit rappel : pour des raisons de sécurité il est absolument interdit d'utiliser le compte 'root' pour se connecter à distance. Vous pouvez alors libérer la floating IP.
+Vous pouvez dès lors créer un user local qui soit autorisé à se connecter à cette VM. Petit rappel : pour des raisons de sécurité il est absolument interdit d'utiliser le compte 'root' pour se connecter à distance.
 
 ##Client Linux
 

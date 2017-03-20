@@ -27,7 +27,7 @@ L'onglet suivant vous permet de sélectionner les réseaux qui seront attachés 
 
 ![Local Image](./images/create-instance-04.jpg)
 
-En revanche, lorsque plusieurs réseaux sont définis, il est nécessaire d'en choisir explicitement au moins un. Pour le projet 'research' par exemple, prenez 'research-net', pour le projet 'petasky', choisissez 'petasky-net'. Ces réseaux sont absoluments nécessaires, sinon la VM n'accèdera pas à Internet.
+En revanche, lorsque plusieurs réseaux sont définis, il est nécessaire d'en choisir explicitement au moins un pour booter la VM. Pour le projet 'petasky' par exemple, choisissez 'petasky-net'.
 
 ![Local Image](./images/create-instance-05.jpg)
 
