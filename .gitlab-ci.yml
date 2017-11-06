@@ -28,6 +28,6 @@ deploy:
     - build
   script:
     - (apt-get update && apt-get -y install rsync) || yum install rsync
-    - rsync -av --delete _book/* update@galactica.isima.fr:/var/www/html/galacticadocs
-    - ssh update@galactica.isima.fr 'find /var/www/html/galacticadocs -type f -exec chmod -R 644 {} \;'
-    - ssh update@galactica.isima.fr 'find /var/www/html/galacticadocs -type d -exec chmod -R 755 {} \;'
+    - rsync -av --delete _book/* update@galactica.isima.fr:/var/www/galactica.isima.fr/web/galacticadocs
+    - ssh update@galactica.isima.fr 'find /var/www/galactica.isima.fr/web/galacticadocs -type f -exec chmod -R 644 {} \;'
+    - ssh update@galactica.isima.fr 'find /var/www/galactica.isima.fr/web/galacticadocs -type d -exec chmod -R 755 {} \;'
