@@ -71,7 +71,7 @@ Maintenant que les options sont définies, vous pouvez placer l'adresse IP de co
 
 ![small](./images/putty-06.jpg)
 
-La première fois, il vous est proposé d'accepter la clé publique :
+La première fois, il vous est proposé d'accepter l'empreinte de la clé :
 
 ![tiny](./images/putty-09.jpg)
 
